@@ -9,7 +9,12 @@
             "email": "1401211620@qq.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=7.1.0",
+        "topthink/framework": "^6.0.0",
+        "topthink/think-view": "^1.0",
+        "topthink/think-helper": "^3.0.0"
+    },
     "autoload": {
         "psr-4": {
             "think\\": "src/"
@@ -17,6 +22,20 @@
         "files": [
             "src/common.php"
         ]
+    },
+    "extra": {
+        "think": {
+            "services": [
+                "think\\tpl\\TplService"
+            ],
+            "config":{
+                "tpl": "src/config.php"
+            }
+        }
+    },
+    "scripts" : {
+        "post-install-cmd": [
+            "php think tpl:config"
+        ]
     }
-
 }
